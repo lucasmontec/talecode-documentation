@@ -1,0 +1,205 @@
+html, body{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    overflow-y: scroll; overflow-x:hidden;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+textarea {
+   resize: none;
+}
+
+body{
+	position: absolute;
+	background: url("../img/seamless_paper_texture.png");
+	font-family: 'Abel', sans-serif;
+	z-index: -1;
+}
+
+.overlay {
+    z-index: 1;
+    height: 100%;
+    width: 80%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 20%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.inline{
+	display: inline-block;
+}
+
+#titleHeader{
+	width: 100%;
+	position: fixed;
+	top:0px;
+	margin: 0px;
+	padding: 15px;
+	vertical-align: middle;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;
+	z-index: 100;
+	
+	background: rgb(121,146,196); /* Old browsers */
+	background: -moz-linear-gradient(left,  #7992c4 0%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#7992c4), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #7992c4 0%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #7992c4 0%,#7db9e8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #7992c4 0%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(to right,  #7992c4 0%,#7db9e8 100%); /* W3C */
+
+}
+
+#titleHeader #title{
+	margin: 0px;
+	display: inline-block;
+	font-family: 'Abel', sans-serif;
+	font-size: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+#titleHeader #searchzone{
+	float: right;
+	height: 30px;
+}
+
+#titleHeader #searchzone #searchlabel{
+	display: inline-block;
+	font-family: 'Abel', sans-serif;
+	top: 50%;
+	margin: 0px;
+	margin-right:10px;
+	font-size: 20px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+#titleHeader #searchzone #searchtext{
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	vertical-align: middle;
+	padding: 2px;
+	color: #fff;
+	font-weight: 600;
+	background: rgba(60,60,150,1); 
+	border: none;
+	border-radius: 7px;
+}
+#titleHeader #searchzone #searchtext:focus{
+	color: #fff;
+	font-weight: 600;
+}
+
+#APIList{
+	width: 20%;
+	position: absolute;
+	top: 60px; /*30px title header content + 2x15px padding*/
+	left:0px;
+	background: rgba(255,255,255,0.2); 
+}
+
+#APIList h2{
+	margin: 15px 0px 0px 15px;
+}
+
+#APIIDList li{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    -webkit-transition: transform 0.1s; /* Safari */
+    transition: transform 0.2s;
+    transition: background-color 0.5s;
+}
+
+#APIIDList li:hover{
+	transform: translate(5px,0px);
+	background-color: rgba(100,100,255,0.2);
+}
+
+#APIIDList li:active{
+	transform: translate(-2px,0px);
+}
+
+#APIIDList h3{
+	margin: 8px 0px 8px 0px;
+}
+
+#Content{
+	/*height: 100%;*/
+	width: 80%;
+	position: absolute;
+	top: 60px; /*30px title header content + 2x15px padding*/
+	left: 20%;
+	/*background: rgba(80,80,80,0.2); */
+}
+
+#Content #ContentHeader{
+	margin: 15px 0px 0px 15px;
+	width: 150px;
+}
+
+#apiIcon{
+	float: left;
+	margin: 50px 0px 0px 50px;
+	width: 100px;
+	height: 100px;
+}
+
+#Content #ContentHeader{
+	font-size: 15px;
+	margin: 50px 0px 0px 0px;
+	height: 100px;
+	float: left;
+	position: relative;
+	vertical-align: middle;
+	width: 80%;
+}
+
+#Content #ContentHeader #superclass{
+	font-size: 15px;
+	margin: 0px;
+}
+
+#Content #ContentHeader #apiid{
+	margin: 20px 0px 0px 0px;
+	line-height: 40px;
+}
+
+#ContentBody{
+	clear: both;
+	padding: 20px 0px 0px 60px;
+}
+
+#methods{
+	width: 90%;
+}
+
+#methods li{
+	padding: 8px;
+	display: inline-block;
+	background: #FFF;
+	border-radius: 10px;
+	margin: 5px;
+	font-weight: 600;
+}

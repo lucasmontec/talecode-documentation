@@ -1,0 +1,1864 @@
+{"AlienTextEngine":"AlienTextEngine 0.36.41 Schedule my bear",
+"TaleCodeDoc":[
+	{
+	"apiid":"SetDoorOpenAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to set the door item open and closed.",
+	"constructors": [
+		{"parameters":"Retriever doorR, Retriever openR"},
+		{"parameters":"DoorItem door"},
+		{"parameters":"DoorItem door, boolean open"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"isOpen","parameters":""},
+		{"name":"setOpen","parameters":"boolean open"},
+		{"name":"getDoor","parameters":""},
+		{"name":"setDoor","parameters":"DoorItem door"}
+	]
+	},
+	{
+	"apiid":"StringFromVariableRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever gets a string from a tale driver variable.",
+	"constructors": [
+		{"parameters":"String variable"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"StringFromArgumentRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever gets a string from the player current argument from the last command.",
+	"constructors": [
+		{"parameters":"String argument"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"TriggerCommandCount",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A trigger that counts how many commands (any command) were used in a space. If the command count exceed the trigger limit, then the trigger executes.",
+	"constructors": [
+		{"parameters":"String name, IAction act, int triggerLimit"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setLimit","parameters":"int limit"}
+	]
+	},
+	{
+	"apiid":"AddRestrictionAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that adds a restriction to a scene.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Restriction rest, Scene scene"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"Scene target"},
+		{"name":"getRestriction","parameters":""},
+		{"name":"setRestriction","parameters":"Restriction restriction"}
+	]
+	},
+	{
+	"apiid":"AttributeComparisonCondition",
+	"superclass":"ComparingCondition",
+	"icon":"conditions",
+	"description":"Checks is all parameters have an attribute. It compares the values. If no attribute key is set, this always returns false. When you build this, you set a comparison type and a internal attribute value. checks if the external values are greater than, smaller, or equals to the internal value according to the choosen comparison type. Avaliable comparisons (int):   +2 - GREATER OR EQUAL  +1 - GREATER THAN  +0 - EQUAL  -1 - LESS THAN  -2 - LESS OR EQUAL  default - EQUAL",
+	"constructors": [
+		{"parameters":"String attributeKey, Object attributeValue, int comp"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"check","parameters":"Object[] params"},
+		{"name":"setAttributeKey","parameters":"String attributeKey"},
+		{"name":"getAttributeKey","parameters":""},
+		{"name":"getAttributeValue","parameters":""},
+		{"name":"setAttributeValue","parameters":"Object attributeValue"}
+	]
+	},
+	{
+	"apiid":"NeverTrueCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"This condition is never true. Ever.",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"TriggerItemContainerUnlock",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time a lockable item container is unlocked. You can specify what container to check. If container is null, any container that gets unlocked will trigger this.",
+	"constructors": [
+		{"parameters":"String name, IAction act, LockableItemContainer item"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setItem","parameters":"LockableItemContainer item"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"AttributeValueTask",
+	"superclass":"Designation",
+	"icon":"designation",
+	"description":"Just like a AttributeTask but instead of completing for every player with the attribute key it completes for all players in the tale driver that have a certain attribute key mapped to the desired value.",
+	"constructors": [
+		{"parameters":"String key, Object value"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"fail","parameters":""},
+		{"name":"complete","parameters":""},
+		{"name":"setAttributeKey","parameters":"String attributeKey"},
+		{"name":"getAttributeKey","parameters":""},
+		{"name":"getAttributeValue","parameters":""},
+		{"name":"setAttributeValue","parameters":"Object attributeValue"}
+	]
+	},
+	{
+	"apiid":"CopyActorAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action copies an actor and adds it to a scene. Cannot copy players.",
+	"constructors": [
+		{"parameters":"Retriever targetR, Retriever sceneR"},
+		{"parameters":"Actor target, Scene scene"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"Actor target"},
+		{"name":"setScene","parameters":"Scene scene"},
+		{"name":"getScene","parameters":""}
+	]
+	},
+	{
+	"apiid":"SetActorDescriptionAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the actor description to the specified value. If actor target is null, this uses the activating player as target.",
+	"constructors": [
+		{"parameters":"Retriever descRetriever"},
+		{"parameters":"Retriever descRetriever, Retriever actorRetriever"},
+		{"parameters":"String desc, Actor actor"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String desc"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"Actor target"},
+		{"name":"setDescription","parameters":"String desc"}
+	]
+	},
+	{
+	"apiid":"StoreItemAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This item stores an item into an item container. If the container is full, the fail action is run.",
+	"constructors": [
+		{"parameters":"Retriever i, ItemContainer container, Action failAction"},
+		{"parameters":"Retriever i, Retriever container, Action failAction"},
+		{"parameters":"Item i, ItemContainer container"},
+		{"parameters":"Item i, ItemContainer container, Action failAction"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getFailAction","parameters":""},
+		{"name":"setFailAction","parameters":"Action failAction"},
+		{"name":"setItem","parameters":"Item i"},
+		{"name":"getContainer","parameters":""},
+		{"name":"setContainer","parameters":"ItemContainer container"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"NonPlayerCharacter",
+	"superclass":"LiveActor",
+	"icon":"none",
+	"description":"Just the same as player but without controls and things a player have. Character doesn't have an analog to the player states model. This is mainly intended to be used with the NPC Controller. This is a basic implementation of the LiveActor model with a look text, a name and other things. This is always visible. The acting can be set.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String name, String desc"}
+	],
+	"methods": [
+		{"name":"getVisibility","parameters":""},
+		{"name":"isActing","parameters":""},
+		{"name":"setActing","parameters":"boolean acting"},
+		{"name":"lookText","parameters":""}
+	]
+	},
+	{
+	"apiid":"TriggerKeyWordOnUserLine",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"This trigger runs if a keyword is present in the last line a player typed.",
+	"constructors": [
+		{"parameters":"String name, String kw, IAction act"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setKeyWord","parameters":"String keyWord"}
+	]
+	},
+	{
+	"apiid":"TriggerRandom",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers randomly each time a event is processed. Default is 50% chance.",
+	"constructors": [
+		{"parameters":"String name, IAction act, float pr"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setPercent","parameters":"float pr"}
+	]
+	},
+	{
+	"apiid":"SetAttributeAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action sets an attribute of a target actor or the active player that executed it (the context player). If the attribute is not present, it will be created.",
+	"constructors": [
+		{"parameters":"Retriever key, Retriever value"},
+		{"parameters":"Retriever target, Retriever key, Retriever value"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String key, Object value"},
+		{"parameters":"Actor target, String key, Object value"}
+	],
+	"methods": [
+		{"name":"getValue","parameters":""},
+		{"name":"getKey","parameters":""},
+		{"name":"setValue","parameters":"Object value"},
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"Actor target"},
+		{"name":"setKey","parameters":"String key"}
+	]
+	},
+	{
+	"apiid":"SetLiveActorDeathTextAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the live actor death text to the specified string.",
+	"constructors": [
+		{"parameters":"Retriever dtRt"},
+		{"parameters":"Retriever dtRt, Retriever actorRt"},
+		{"parameters":"String dt, LiveActor actor"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String dt"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"LiveActor target"},
+		{"name":"setDeathText","parameters":"String name"}
+	]
+	},
+	{
+	"apiid":"NoAction",
+	"superclass":"Action",
+	"icon":"none",
+	"description":"A action that doesn't do nothing. An empty action.",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"complete","parameters":""},
+		{"name":"act","parameters":"Player context, TaleDriver driver"}
+	]
+	},
+	{
+	"apiid":"SetVisibleAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the Item (item/usable) visibility. Invisible actors can't receive the look command, are not listed by looking at the scene but they can be interacted with (storing things for example). By default it sets the item invisible.",
+	"constructors": [
+		{"parameters":"Retriever targetActorR"},
+		{"parameters":"Retriever targetActorR, Retriever visibleR"},
+		{"parameters":"Item actor, boolean visible"},
+		{"parameters":"Item actor"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"Item target"},
+		{"name":"setVisible","parameters":"boolean visible"},
+		{"name":"isSetVisible","parameters":""}
+	]
+	},
+	{
+	"apiid":"IncreaseAttributeAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action increases a number attribute of a target actor or the active player that executed it (the context player). If the attribute is not present, nothing will be done. This works both with floats and integers (if you try to add a float to a integer using this, the float gets rounded). Use negative values to decrease the attribute.",
+	"constructors": [
+		{"parameters":"Retriever attributeKeyR, Retriever increaseValueR, Retriever targetR"},
+		{"parameters":"Retriever attributeKeyR, Retriever increaseValueR"},
+		{"parameters":"String attributeKey, Retriever increaseValueR, Retriever targetR"},
+		{"parameters":"String attributeKey, float increaseValue, Retriever targetR"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String attributeKey, float increaseValue, Actor target"},
+		{"parameters":"String attributeKey, float increaseValue"},
+		{"parameters":"String attributeKey, int increaseValue"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"Actor target"},
+		{"name":"setAttributeKey","parameters":"String attributeKey"},
+		{"name":"setIncreaseValue","parameters":"float increaseValue"},
+		{"name":"getAttributeKey","parameters":""},
+		{"name":"getIncreaseValue","parameters":""}
+	]
+	},
+	{
+	"apiid":"Item",
+	"superclass":"Actor",
+	"icon":"item",
+	"description":"Just a simple implementation of an item.This item provides a name that appears uppon look commandsand a description when you take a 'look item' at this item.This is not usable.",
+	"constructors": [
+		{"parameters":"Item i"},
+		{"parameters":"String n, String d"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setVisibility","parameters":"Visibility v"},
+		{"name":"getVisibility","parameters":""},
+		{"name":"isActing","parameters":""},
+		{"name":"setActing","parameters":"boolean ac"},
+		{"name":"lookText","parameters":""},
+		{"name":"isStoreable","parameters":""},
+		{"name":"setStorable","parameters":"boolean storeable"}
+	]
+	},
+	{
+	"apiid":"EndHistoryAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that ends the current history for all players. The end can have a cause (that will show up in the end label).",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String cause"}
+	],
+	"methods": [
+		{"name":"getCause","parameters":""},
+		{"name":"setCause","parameters":"String cause"}
+	]
+	},
+	{
+	"apiid":"SetUnlistedAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the Item visibility to unlisted. Unlisted actors can receive the look command if targeted at them but are not listed by looking at the scene. They can still be interacted with (storing things, or using them for example).",
+	"constructors": [
+		{"parameters":"Retriever targetActorR"},
+		{"parameters":"Item actor"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"Item target"}
+	]
+	},
+	{
+	"apiid":"TriggerItemWithAttributeUsed",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time an item is used if the item has a specific attribute. You can also check the attribute value. If you don't specify nothing, any item use will trigger this.",
+	"constructors": [
+		{"parameters":"String name, IAction act, String attributeKey"},
+		{"parameters":"String name, IAction act, Item item"},
+		{"parameters":"String name, IAction act, Item item, String attributeKey"},
+		{"parameters":"String name, IAction act, Item item, String attributeKey, Object attributeValue"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setAttributeKey","parameters":"String attributeKey"},
+		{"name":"getAttributeKey","parameters":""},
+		{"name":"setItem","parameters":"Item item"},
+		{"name":"getItem","parameters":""},
+		{"name":"getAttributeValue","parameters":""},
+		{"name":"setAttributeValue","parameters":"Object attributeValue"}
+	]
+	},
+	{
+	"apiid":"HasAttributeCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"Checks is all parameters have an attribute. If the value is set (not null) it compares the values (equals comparison). If there is no value, it only compares attribute keys (must be present in all parameters). If no attribute key is set, this always returns false. Only tests actors.",
+	"constructors": [
+		{"parameters":"String attributeKey, Object attributeValue"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setAttributeKey","parameters":"String attributeKey"},
+		{"name":"getAttributeKey","parameters":""},
+		{"name":"getAttributeValue","parameters":""},
+		{"name":"setAttributeValue","parameters":"Object attributeValue"}
+	]
+	},
+	{
+	"apiid":"ItemContainer",
+	"superclass":"UsableActionItem",
+	"icon":"item",
+	"description":"A container is like a box or wardrobe. It is anobject that can store items inside.An item container is an item (UsableActionItem).Item containers have a variable to store their max capacity.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String n, String d, int cap, boolean canSeeInside"},
+		{"parameters":"String n, String d, int cap"},
+		{"parameters":"IAction action, String n, String d, int cap, boolean canSeeInside"}
+	],
+	"methods": [
+		{"name":"count","parameters":""},
+		{"name":"contains","parameters":"Item item"},
+		{"name":"store","parameters":"Item i"},
+		{"name":"transfer","parameters":"String name, ItemContainer target"},
+		{"name":"lookText","parameters":""},
+		{"name":"useItem","parameters":"Player p, String itemname, String keyItem, TaleDriver td"},
+		{"name":"useItem","parameters":"Player p, String itemname, TaleDriver td"},
+		{"name":"removeItem","parameters":"String name"},
+		{"name":"removeItem","parameters":""},
+		{"name":"removeItem","parameters":"Item it"},
+		{"name":"canStore","parameters":"Item i"},
+		{"name":"canSeeInside","parameters":""},
+		{"name":"getCapacity","parameters":""},
+		{"name":"hasItems","parameters":""},
+		{"name":"setCapacity","parameters":"int capacity"},
+		{"name":"setCanSeeInside","parameters":"boolean canSeeInside"},
+		{"name":"getItem","parameters":"String namePart"},
+		{"name":"getItem","parameters":"int index"}
+	]
+	},
+	{
+	"apiid":"Task",
+	"superclass":"Designation",
+	"icon":"designation",
+	"description":"A task is a designation for all players. It is just an objective that must be completed no matter what player completes it. When it is completed, it is completed for every one.This means this objective runs the completed action (if any) on every one and shows the completed text (if any) to every one.Every one on this context means every one registered on the tale driver.Every thing said for completed works the same way for failing.",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"fail","parameters":""},
+		{"name":"complete","parameters":""}
+	]
+	},
+	{
+	"apiid":"SetHealthAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the LiveActor (player/monster/anything live) health to the specified value.",
+	"constructors": [
+		{"parameters":"Retriever healthVRetriever"},
+		{"parameters":"Retriever healthVRetriever, Retriever actorRetriever"},
+		{"parameters":"int healthValue, LiveActor actor"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"int healthValue"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"LiveActor target"},
+		{"name":"setVal","parameters":"int val"}
+	]
+	},
+	{
+	"apiid":"TriggerItemContainerLock",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time a lockable item container is locked. You can specify what container to check. If container is null, any container that gets locked will trigger this.",
+	"constructors": [
+		{"parameters":"String name, IAction act, LockableItemContainer item"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setItem","parameters":"LockableItemContainer item"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"NPCController",
+	"superclass":"Object",
+	"icon":"none",
+	"description":"A NPC controller, Non-player character controler, is a class that handles characters for the engine.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"LiveActor npcActor, ActionNode npcActionGraph"}
+	],
+	"methods": [
+		{"name":"setNpcActor","parameters":"LiveActor npcActor"},
+		{"name":"setAGSRSettings","parameters":"boolean hunger, boolean autoGainOwnership, Action runOnNonOwnerPlayer"},
+		{"name":"getNpcActor","parameters":""},
+		{"name":"setNpcActionGraph","parameters":"ActionNode npcActionGraph"},
+		{"name":"setActionGraphStreamReader","parameters":"ActionGraphStreamReader agsr"},
+		{"name":"setRunOnNonOwnerPlayerAction","parameters":"Action runOnNonOwnerPlayer"},
+		{"name":"getNpcActionGraph","parameters":""},
+		{"name":"isAddDeathTrigger","parameters":""},
+		{"name":"setAddDeathTrigger","parameters":"boolean addDeathTrigger"}
+	]
+	},
+	{
+	"apiid":"AddTriggerAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to add a trigger to a scene or to the history. The trigger won't be copied, but it will be referenced.if this trigger is sensible to one-time activation you'll want to add different triggers to different scenes.",
+	"constructors": [
+		{"parameters":"Trigger t, History h, Scene s"},
+		{"parameters":"Trigger t, History h"},
+		{"parameters":"Scene s, Trigger t"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setTargetScene","parameters":"Scene targetScene"},
+		{"name":"setTrigger","parameters":"Trigger trigger"}
+	]
+	},
+	{
+	"apiid":"BlockingRestriction",
+	"superclass":"Restriction",
+	"icon":"none",
+	"description":"A restriction that blocks a scene. No player can enter it while the scene has this restriction.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String RID"},
+		{"parameters":"String RID, String desc"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"ConnectSceneNodesAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Connects node A to B with the desired connection type. Connection types are: PATHTO (makes a twoway path between A and B) GOESTO (makes a oneway path that leads from A to B)",
+	"constructors": [
+		{"parameters":"SceneNode a, SceneNode b, String connectionType"},
+		{"parameters":"SceneNode a, SceneNode b, ConnectionType connectionType"},
+		{"parameters":"SceneNode a, SceneNode b"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getType","parameters":""},
+		{"name":"setType","parameters":"String connectionType"},
+		{"name":"setA","parameters":"SceneNode a"},
+		{"name":"getA","parameters":""},
+		{"name":"getB","parameters":""},
+		{"name":"setB","parameters":"SceneNode b"}
+	]
+	},
+	{
+	"apiid":"ActionTextCommand",
+	"superclass":"TextCommand",
+	"icon":"none",
+	"description":"This is a text command that, when called, executes an action. You are encouraged to use retrievers to be able to use the command arguments in the action.",
+	"constructors": [
+		{"parameters":"String format, String comm, String help"},
+		{"parameters":"boolean shouldCauseUpdates, String format, String comm, String help"},
+		{"parameters":"boolean exludeFromCounting, boolean shouldCauseUpdates, String format, String comm, String help"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"addRestriction","parameters":"Restriction r"},
+		{"name":"getAction","parameters":""},
+		{"name":"setAction","parameters":"IAction action"},
+		{"name":"getFailAction","parameters":""},
+		{"name":"setFailAction","parameters":"IAction iFailAction"},
+		{"name":"removeRestriction","parameters":"String name"},
+		{"name":"removeRestriction","parameters":"int index"},
+		{"name":"removeRestriction","parameters":"Restriction r"}
+	]
+	},
+	{
+	"apiid":"TriggerSceneExit",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"An action trigger that triggers when a player leaves a scene.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String name, IAction act"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"AddLocalActionNodeAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This is an action that installs a non-hungry stream reader to the driver on the player that activated it. This will bind the node to a scene. Only players in that scene will be able to interact with this node. It has no owner so it is global to that scene. Every player can interact with it changing it state (changing the reader state globally). non-hungry means texts that don't activate any nodes are processed as commands.",
+	"constructors": [
+		{"parameters":"ActionNode node, Object pos, boolean withMaster"},
+		{"parameters":"ActionNode node, Object pos"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getNode","parameters":""},
+		{"name":"setNode","parameters":"ActionNode anode"}
+	]
+	},
+	{
+	"apiid":"ParallelAction",
+	"superclass":"Action",
+	"icon":"none",
+	"description":"This is an action that when called, executes all child actions in parallel.",
+	"constructors": [
+		{"parameters":"Object[] acts"},
+		{"parameters":"boolean loop, Object[] acts"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"clear","parameters":""},
+		{"name":"getActions","parameters":""},
+		{"name":"isLoop","parameters":""},
+		{"name":"addAction","parameters":"Action a"},
+		{"name":"setLoop","parameters":"boolean loop"}
+	]
+	},
+	{
+	"apiid":"MatchCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"This is a condition that holds an object as reference and when check is called it compares the reference to all params. If one param is different the condition check returns false.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Object compare"}
+	],
+	"methods": [
+		{"name":"setNeedle","parameters":"Object needle"},
+		{"name":"getNeedle","parameters":""}
+	]
+	},
+	{
+	"apiid":"HasAttributeRestriction",
+	"superclass":"Restriction",
+	"icon":"none",
+	"description":"A restriction that checks if the entering player has a specific attribute.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String RID"},
+		{"parameters":"String RID, String key"},
+		{"parameters":"String RID, String desc, String key"}
+	],
+	"methods": [
+		{"name":"setAttributeKey","parameters":"String s"}
+	]
+	},
+	{
+	"apiid":"Retriever",
+	"superclass":"Object",
+	"icon":"none",
+	"description":"This class finds objects in places. It uses a data, filters it to get a name text and than finds an object with that name at a target. You use the builder methods to create each retriever. You can set one source and one find operation. You can filter the data from the source until you have thedesired data to use for finding.",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"add","parameters":"Retriever valueRetriever"},
+		{"name":"add","parameters":"float value"},
+		{"name":"toString","parameters":""},
+		{"name":"filterArg","parameters":"String key"},
+		{"name":"findAsFloat","parameters":""},
+		{"name":"fromRandomPlayer","parameters":""},
+		{"name":"fromRandomActor","parameters":""},
+		{"name":"fromVariable","parameters":"String group, String name"},
+		{"name":"fromVariable","parameters":"String name"},
+		{"name":"fromLastLine","parameters":""},
+		{"name":"filterAttribute","parameters":"String attbKey"},
+		{"name":"filterSubstring","parameters":"int start, int end"},
+		{"name":"filterSubstring","parameters":"int start"},
+		{"name":"filterSplitGet","parameters":"String delim, int elementIndex"},
+		{"name":"filterName","parameters":""},
+		{"name":"filterHealth","parameters":""},
+		{"name":"mul","parameters":"float value"},
+		{"name":"mul","parameters":"Retriever valueRetriever"},
+		{"name":"findActorInScene","parameters":""},
+		{"name":"findActorInScene","parameters":"Scene scn"},
+		{"name":"findAsInteger","parameters":"Float scale"},
+		{"name":"findAsInteger","parameters":"Integer scale"},
+		{"name":"findAsInteger","parameters":""},
+		{"name":"findAsString","parameters":""},
+		{"name":"findCurrentScene","parameters":""},
+		{"name":"findChildScene","parameters":""},
+		{"name":"fromLastCommandArgs","parameters":""},
+		{"name":"fromRetrieverFind","parameters":"Retriever other"},
+		{"name":"fromPlayerAttribute","parameters":"String key"},
+		{"name":"fromRandomLiveActor","parameters":""},
+		{"name":"filterDescription","parameters":""},
+		{"name":"findTriggerInScene","parameters":"Scene scn"},
+		{"name":"findTriggerInScene","parameters":""},
+		{"name":"findTriggerInHistory","parameters":""},
+		{"name":"findRestrictionInScene","parameters":""},
+		{"name":"findRestrictionInScene","parameters":"Scene scn"}
+	]
+	},
+	{
+	"apiid":"ActorFromVariableRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever finds an actor in the player current scene using a variable value as the actor name to find.",
+	"constructors": [
+		{"parameters":"String variableName"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"FloatFromArgumentRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever gets a float from the player current argument from the last command.",
+	"constructors": [
+		{"parameters":"String argument"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"TriggerLiveActorDeath",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time a live actor health changes to zero.  You can set a specific actor to track, else will track all live actors. Checks if they are dead.",
+	"constructors": [
+		{"parameters":"String name, IAction act"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getLive","parameters":""},
+		{"name":"setLiveActor","parameters":"LiveActor live"}
+	]
+	},
+	{
+	"apiid":"SetActorNameAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the actor name to the specified value.",
+	"constructors": [
+		{"parameters":"Retriever nameRetriever"},
+		{"parameters":"Retriever nameRetriever, Retriever actorRetriever"},
+		{"parameters":"String name, Actor actor"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String name"}
+	],
+	"methods": [
+		{"name":"setName","parameters":"String name"},
+		{"name":"setTarget","parameters":"Actor target"}
+	]
+	},
+	{
+	"apiid":"ActionNode",
+	"superclass":"Object",
+	"icon":"streamreader",
+	"description":"A action node is a graph node that reads input lines to processconversation and other simulations. The action node works as an entire graph, each node havesons that are triggered by their keywords or keyphrases. When a node is activated, itsaction is run and the node is set as current.",
+	"constructors": [
+		{"parameters":"String s"},
+		{"parameters":"Action a, String s"},
+		{"parameters":"Object[] strings"},
+		{"parameters":"Action action, Object[] strings"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"ActionNode son"},
+		{"parameters":"Action a"}
+	],
+	"methods": [
+		{"name":"setAction","parameters":"Action act"},
+		{"name":"addSon","parameters":"ActionNode node"},
+		{"name":"isNoMatchCall","parameters":""},
+		{"name":"isEcho","parameters":""},
+		{"name":"setEcho","parameters":"boolean echo"},
+		{"name":"setNoMatchCall","parameters":"boolean noMatchCall"},
+		{"name":"setSonOfItSelf","parameters":""}
+	]
+	},
+	{
+	"apiid":"TriggerPlayerInstalled",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"An action trigger that triggers when a player is installed in the history. Install this to the history or it won't work.",
+	"constructors": [
+		{"parameters":"String name, IAction act"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"CreateItemAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to create items and add them to scenes.",
+	"constructors": [
+		{"parameters":"Retriever nameRetriever, Retriever descriptionRetriever"},
+		{"parameters":"String name, String description, boolean storable"},
+		{"parameters":"String name, String description"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setTargetScene","parameters":"Scene targetScene"},
+		{"name":"setStorable","parameters":"boolean storeable"},
+		{"name":"isStorable","parameters":""},
+		{"name":"getItemName","parameters":""},
+		{"name":"getTargetScene","parameters":""},
+		{"name":"setItemName","parameters":"String itemName"},
+		{"name":"setItemDescription","parameters":"String itemDescription"},
+		{"name":"getItemDescription","parameters":""}
+	]
+	},
+	{
+	"apiid":"SequenceAction",
+	"superclass":"Action",
+	"icon":"none",
+	"description":"This is an action that when called, executes a child action. The next call executes the next one, in sequence (waits for each one to complete).",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"boolean loop, Object[] acts"},
+		{"parameters":"Object[] acts"}
+	],
+	"methods": [
+		{"name":"clear","parameters":""},
+		{"name":"getActions","parameters":""},
+		{"name":"reset","parameters":""},
+		{"name":"isLoop","parameters":""},
+		{"name":"addAction","parameters":"Action a"},
+		{"name":"setLoop","parameters":"boolean loop"}
+	]
+	},
+	{
+	"apiid":"FloatFromVariableRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever gets a float from a tale driver variable.",
+	"constructors": [
+		{"parameters":"String variable"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"SetActingAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action sets an item acting property (base property). Non actiong items can't receive any interactions but the look command. By default it sets the item to non acting (since most actors are acting by default).",
+	"constructors": [
+		{"parameters":"Retriever targetActorR"},
+		{"parameters":"Retriever targetItemR, Retriever visibleR"},
+		{"parameters":"Item item, boolean acting"},
+		{"parameters":"Item item"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"Item target"},
+		{"name":"setItemActing","parameters":"boolean acting"},
+		{"name":"isSetActing","parameters":""}
+	]
+	},
+	{
+	"apiid":"RemoveRestrictionAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to remove restrictions from scenes. Uses the restriction ID to remove. Removes all restrictions found with that ID.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String rest, SceneNode scene"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"SceneNode target"},
+		{"name":"setRestrictionID","parameters":"String restriction"},
+		{"name":"getRestrictionID","parameters":""}
+	]
+	},
+	{
+	"apiid":"TriggerLiveActorHealthDelta",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time a live actor health increases or decreases. Tracks decreasing by default. You can set a specific actor to track, else will track all live actors.",
+	"constructors": [
+		{"parameters":"String name, IAction act"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getLive","parameters":""},
+		{"name":"setLiveActor","parameters":"LiveActor live"},
+		{"name":"setIncrease","parameters":"boolean increase"},
+		{"name":"isIncrease","parameters":""}
+	]
+	},
+	{
+	"apiid":"SetContainerLockAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action locks or unlocks a LockableItemContainer.",
+	"constructors": [
+		{"parameters":"Retriever targetR"},
+		{"parameters":"Retriever targetR, Retriever lockR"},
+		{"parameters":"LockableItemContainer target"},
+		{"parameters":"LockableItemContainer target, boolean lock"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"LockableItemContainer target"},
+		{"name":"setLock","parameters":"boolean lock"},
+		{"name":"isLock","parameters":""}
+	]
+	},
+	{
+	"apiid":"HasUsesCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"Checks if usable items parameters have uses. If all of them still have uses left, then it returns true.",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"AnswerNode",
+	"superclass":"ActionNode",
+	"icon":"actions",
+	"description":"A action node that reads strings and responds with text.",
+	"constructors": [
+		{"parameters":"String answer, Object[] keywords"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"SetVariableAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to set variable values in the tale driver. You can set a group too using a point in the variable name: 'group.variable'",
+	"constructors": [
+		{"parameters":"String varname, Retriever valueRetriever"},
+		{"parameters":"Retriever varNameRetriever, Object value"},
+		{"parameters":"Retriever varNameRetriever, Retriever valueRetriever"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String variableName"},
+		{"parameters":"String variableName, Object value"}
+	],
+	"methods": [
+		{"name":"setValue","parameters":"Object value"},
+		{"name":"setVariableName","parameters":"String variableName"}
+	]
+	},
+	{
+	"apiid":"DropItemAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This drops an item from an item container. If the item is not found, the fail action is run.",
+	"constructors": [
+		{"parameters":"Retriever i, ItemContainer container, Action failAction"},
+		{"parameters":"Retriever i, Retriever container, Action failAction"},
+		{"parameters":"Item i, ItemContainer container"},
+		{"parameters":"Item i, ItemContainer container, Action failAction"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getFailAction","parameters":""},
+		{"name":"setFailAction","parameters":"Action failAction"},
+		{"name":"setItem","parameters":"Item i"},
+		{"name":"getContainer","parameters":""},
+		{"name":"setContainer","parameters":"ItemContainer container"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"Goal",
+	"superclass":"Designation",
+	"icon":"designation",
+	"description":"This is a player goal. Is a designation for a player to complete.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Player target"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"Player target"},
+		{"name":"fail","parameters":""},
+		{"name":"complete","parameters":""}
+	]
+	},
+	{
+	"apiid":"HealthComparisonCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"Checks is all parameters are a live actor. It compares the health values of the actors. If no health is set, it defaults to 0. Compares all health from live actors in the parameters to the specified health in the condition. Avaliable comparisons (int): +2 - GREATER OR EQUAL +1 - GREATER THAN +0 - EQUAL -1 - LESS THAN -2 - LESS OR EQUAL default - EQUAL",
+	"constructors": [
+		{"parameters":"int val, int comp"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"check","parameters":"Object[] params"},
+		{"name":"getComparisonType","parameters":""},
+		{"name":"setComparisonType","parameters":"int comparisonType"}
+	]
+	},
+	{
+	"apiid":"DropItemByNameAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This drops an item from an item container. Uses a string (can be a partial name) to find the item to drop. Item must be acting. If the item is not found, the fail action is run.",
+	"constructors": [
+		{"parameters":"Retriever i, ItemContainer container, Action failAction"},
+		{"parameters":"Retriever i, Retriever container, Action failAction"},
+		{"parameters":"String i, ItemContainer container"},
+		{"parameters":"String i, ItemContainer container, Action failAction"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getFailAction","parameters":""},
+		{"name":"setFailAction","parameters":"Action failAction"},
+		{"name":"setItem","parameters":"String i"},
+		{"name":"getContainer","parameters":""},
+		{"name":"setContainer","parameters":"ItemContainer container"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"TriggerActorLookedAt",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time an actor is looked at. You can set a specific actor to check, if not looking at any actor will trigger this.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Actor actor"},
+		{"parameters":"String name, IAction act, Actor actor"}
+	],
+	"methods": [
+		{"name":"setActor","parameters":"Actor actor"},
+		{"name":"getActor","parameters":""}
+	]
+	},
+	{
+	"apiid":"DamageAllLiveActorsAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Damages all LiveActors (player/monster/anything live) with the specified damage value. Damages all actors in the specified scene. If no scene is specified, damages all live actors in the context player scene.",
+	"constructors": [
+		{"parameters":"Retriever healthVRetriever, Retriever targetSceneRetriever"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"int healthValue, Scene scn"},
+		{"parameters":"int healthValue"}
+	],
+	"methods": [
+		{"name":"setTargetScene","parameters":"Scene targetScene"},
+		{"name":"getTargetScene","parameters":""},
+		{"name":"getDmg","parameters":""},
+		{"name":"setDmg","parameters":"int val"}
+	]
+	},
+	{
+	"apiid":"TriggerLiveActorHealthChangedAmount",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time a live actor health changes by an amount. You can set a specific actor to track, else will track all live actors.",
+	"constructors": [
+		{"parameters":"String name, IAction act, int amt"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getLive","parameters":""},
+		{"name":"setLiveActor","parameters":"LiveActor live"},
+		{"name":"setAmount","parameters":"int amount"},
+		{"name":"getAmount","parameters":""}
+	]
+	},
+	{
+	"apiid":"EqualParametersCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"This is a condition that checks if all parameters are equal (checks against them selves).",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"AttributeLockableItemContainer",
+	"superclass":"ItemContainer",
+	"icon":"item",
+	"description":"This is an item container that can be locked. It checks the attribute of the key item beeing used (not the item itself).",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String attributeName, Object attributeValue"},
+		{"parameters":"String n, String d, int cap"},
+		{"parameters":"String n, String d, int cap, boolean canSeeInside"},
+		{"parameters":"String attributeName, Object attributeValue, String n, String d, int cap, boolean canSeeInside"}
+	],
+	"methods": [
+		{"name":"lock","parameters":""},
+		{"name":"isLocked","parameters":""},
+		{"name":"unlock","parameters":""},
+		{"name":"setLocked","parameters":"boolean locked"},
+		{"name":"getAttributeName","parameters":""},
+		{"name":"setAttributeName","parameters":"String attributeName"},
+		{"name":"getAttributeValue","parameters":""},
+		{"name":"setAttributeValue","parameters":"Object attributeValue"}
+	]
+	},
+	{
+	"apiid":"SayToAll",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that narrates to all players in the (activator player's) scene. You can add more than one text to this action, it will narrate one of the list randomly.",
+	"constructors": [
+		{"parameters":"Retriever what"},
+		{"parameters":"String guy, String what, String format"},
+		{"parameters":"String guy, Object[] what"},
+		{"parameters":"String what"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setText","parameters":"String txt"},
+		{"name":"addText","parameters":"String txt"}
+	]
+	},
+	{
+	"apiid":"AddActorAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action gets an actor and adds it to a scene.",
+	"constructors": [
+		{"parameters":"Retriever targetR, Retriever sceneR"},
+		{"parameters":"Actor target, Scene scene"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"Actor target"},
+		{"name":"setScene","parameters":"Scene scene"},
+		{"name":"getScene","parameters":""}
+	]
+	},
+	{
+	"apiid":"CloseActionGraphAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Adding this action to a actionnode will close the node chat (graph). This finishes the processing at that graph.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"ActionNode cht"}
+	],
+	"methods": [
+		{"name":"setNode","parameters":"ActionNode anode"},
+		{"name":"getAnode","parameters":""}
+	]
+	},
+	{
+	"apiid":"AttributeValueEqualsRestriction",
+	"superclass":"Restriction",
+	"icon":"none",
+	"description":"A restriction that checks a player attribute value and compares it to a stored value. If the values match, the player can enter the scene.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String RID"},
+		{"parameters":"String RID, String key, Object value"},
+		{"parameters":"String RID, String desc, String key, Object value"}
+	],
+	"methods": [
+		{"name":"setAttributeKey","parameters":"String s"},
+		{"name":"setAttributeValue","parameters":"Object o"}
+	]
+	},
+	{
+	"apiid":"ActorFromArgumentRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever finds an actor in the player current scene using a argument from the last command.",
+	"constructors": [
+		{"parameters":"String argument"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"RandomAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This is an action that has an internal action. When called to act runs the internal action randomly. You can set the probability of the internal action to succeed or fail. If the action fails, a fail action is runned instead. The default factor of success is 50%.  If the factor is 0.7 for example, the run action has 70% of chance to succeed.",
+	"constructors": [
+		{"parameters":"Action run, Action fail, Retriever factorR"},
+		{"parameters":"Action run, Action fail, float factor"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setFactor","parameters":"float factor"},
+		{"name":"getRun","parameters":""},
+		{"name":"setRun","parameters":"Action run"},
+		{"name":"getFail","parameters":""},
+		{"name":"setFail","parameters":"Action fail"},
+		{"name":"getFactor","parameters":""}
+	]
+	},
+	{
+	"apiid":"IsAliveCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"Checks if live actors are alive. If one of the parameter live actors is dead, returns false.",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"DisconnectSceneNodesAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that disconnects scene nodes. Removes all connections types between A and B.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"SceneNode a, SceneNode b"}
+	],
+	"methods": [
+		{"name":"setA","parameters":"SceneNode a"},
+		{"name":"getA","parameters":""},
+		{"name":"getB","parameters":""},
+		{"name":"setB","parameters":"SceneNode b"}
+	]
+	},
+	{
+	"apiid":"IntegerFromArgumentRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever gets a integer from the player current argument from the last command.",
+	"constructors": [
+		{"parameters":"String argument"},
+		{"parameters":"String argument, int scale"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"ResetStreamReaderAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This resets an ActionGraphStreamReader by setting its current node to the first node. This action removes the current 'owner' player that is leading the interaction with the AGSR. This allows for new interaction.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"ActionGraphStreamReader reader"}
+	],
+	"methods": [
+		{"name":"setStreamReader","parameters":"ActionGraphStreamReader reader"},
+		{"name":"getStreamReader","parameters":""}
+	]
+	},
+	{
+	"apiid":"ActionGraphStreamReader",
+	"superclass":"Object",
+	"icon":"streamreader",
+	"description":"This is for processing advanced action operations with the action node graph model. This reads input lines from the players (can be bound to one or read from all) and feed those lines through a Action Graph. An Action Graph is a graph made of Action Nodes that execute an Action when triggered. Only one node is triggered at a time, the best scoring node. When the player (a valid one bound by its reference or the scene it lies in) types something, his text line is fed through all ActionGraphStreamReaders (AGSRs) in the history. The line then is tested against each ActionNode that is son of the current node. Each node gets a score based on how close the line looks to the node key words and phrases. The one with the highest score is called. If no node gets a score above 0, then the developer can install a node with NMC activated. It is a fallback node, called NoMatchCall in this engine. AGSR can also be set to give ownership to the first player that activated it. This is so you can use this to create Character like behavior. A player starts to 'talk' with the character and if other player activates the AGSR, he will get runOnNonOwnerPlayer action runned on him. When you want to finish the AGSR operation, call close on it.",
+	"constructors": [
+		{"parameters":"ActionNode anode, Object pos, boolean hunger"},
+		{"parameters":"ActionNode anode"},
+		{"parameters":"ActionNode anode, Object pos"},
+		{"parameters":"Player ow, ActionNode anode, boolean hunger, boolean autoGainOwnership, Object pos"},
+		{"parameters":"ActionNode anode, Player ow"},
+		{"parameters":"Player ow, ActionNode anode, Object pos"}
+	],
+	"methods": [
+		{"name":"close","parameters":""},
+		{"name":"reset","parameters":""},
+		{"name":"isOpen","parameters":""},
+		{"name":"getPosition","parameters":""},
+		{"name":"isHungry","parameters":""},
+		{"name":"setHungry","parameters":"boolean hungry"},
+		{"name":"setPosition","parameters":"Object position"},
+		{"name":"releaseOwnership","parameters":""},
+		{"name":"getPlayer","parameters":""},
+		{"name":"setPlayer","parameters":"Player player"},
+		{"name":"setAutoGainOwnership","parameters":"boolean t"},
+		{"name":"getRunOnNonOwnerPlayer","parameters":""},
+		{"name":"setRunOnNonOwnerPlayer","parameters":"Action runOnNonOwnerPlayer"},
+		{"name":"isAutoGainOwnership","parameters":""}
+	]
+	},
+	{
+	"apiid":"UsableActionItem",
+	"superclass":"UsableItem",
+	"icon":"item",
+	"description":"An item that is usable and when its used the action is executed. Use count decreases when the item is used.",
+	"constructors": [
+		{"parameters":"String n, String d"},
+		{"parameters":"IAction execute, String n, String d"},
+		{"parameters":"IAction execute, String n, String d, String useTxt, int uss, String depleted"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"IAction execute, Condition cond, String n, String d, String useTxt, int uss"},
+		{"parameters":"IAction execute, String n, String d, String useTxt, int uss"}
+	],
+	"methods": [
+		{"name":"setAction","parameters":"IAction a"},
+		{"name":"setFailAction","parameters":"IAction a"},
+		{"name":"setCondition","parameters":"Condition c"}
+	]
+	},
+	{
+	"apiid":"SceneTask",
+	"superclass":"Designation",
+	"icon":"designation",
+	"description":"This is a task bound to a scene. Is almost the same as a normal Task but instead of completing for every player in the tale driver, it only completes for all players in the desired scene.",
+	"constructors": [
+		{"parameters":"SceneNode scene"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"fail","parameters":""},
+		{"name":"setTargetScene","parameters":"Scene scene"},
+		{"name":"complete","parameters":""},
+		{"name":"getTargetScene","parameters":""}
+	]
+	},
+	{
+	"apiid":"RemovePlayerAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to remove a player from the history.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Player target"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"CloseStreamReaderAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Adding this action to a ActionGraphStreamReader will close it. This finishes the processing at that graph.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"ActionGraphStreamReader reader"}
+	],
+	"methods": [
+		{"name":"setStreamReader","parameters":"ActionGraphStreamReader reader"},
+		{"name":"getStreamReader","parameters":""}
+	]
+	},
+	{
+	"apiid":"DeleteVariableAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to delete a variable in the tale driver. You can get a group variable using a point in the variable name: 'group.variable'",
+	"constructors": [
+		{"parameters":"Retriever varNameRetriever"},
+		{"parameters":"String variableName"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setVariableName","parameters":"String variableName"}
+	]
+	},
+	{
+	"apiid":"FailDesignationAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that fails a target designation.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Designation designation"}
+	],
+	"methods": [
+		{"name":"setDesignation","parameters":"Designation designation"},
+		{"name":"getDesignation","parameters":""}
+	]
+	},
+	{
+	"apiid":"TriggerCommandSpecific",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A trigger that triggers when a player types a specific command.",
+	"constructors": [
+		{"parameters":"String name, IAction act, String cAct"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setCommandActivator","parameters":"String commandActivator"}
+	]
+	},
+	{
+	"apiid":"ConditionalAction",
+	"superclass":"Action",
+	"icon":"none",
+	"description":"This is an action that behaves like an IF expression.  It has a success action that runs when the condition passes, and a fail action that runs when the condition fails. Works in an if-then-else fashion. The condition tests the player by default (if the test object is null). The internal test object can track an object to compare the value with the condition. If no condition is set (condition == null) this always runs the success action.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"IAction action, IAction failAction, Condition condition, Object test"}
+	],
+	"methods": [
+		{"name":"getAction","parameters":""},
+		{"name":"setAction","parameters":"IAction action"},
+		{"name":"getFailAction","parameters":""},
+		{"name":"setFailAction","parameters":"IAction failAction"},
+		{"name":"setCondition","parameters":"Condition condition"},
+		{"name":"getTestObject","parameters":""},
+		{"name":"getCondition","parameters":""},
+		{"name":"setTestObject","parameters":"Object test"}
+	]
+	},
+	{
+	"apiid":"AddPlayerGlobalActionNodeAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This is an action that installs a non-hungry stream reader to the driver on the player that activated it. non-hungry means texts that don't activate any nodes are processed as commands. The node stored is used in this as the graph starting point.",
+	"constructors": [
+		{"parameters":"ActionNode node"},
+		{"parameters":"ActionNode node, boolean withMaster"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getNode","parameters":""},
+		{"name":"setNode","parameters":"ActionNode anode"}
+	]
+	},
+	{
+	"apiid":"TriggerLiveActorHealthChanged",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time a live actor health changes.  You can set a specific actor to track, else will track all live actors.",
+	"constructors": [
+		{"parameters":"String name, IAction act"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getLive","parameters":""},
+		{"name":"setLiveActor","parameters":"LiveActor live"}
+	]
+	},
+	{
+	"apiid":"UseItemAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to use items.",
+	"constructors": [
+		{"parameters":"Retriever keyRetriever, Retriever itemRetriever"},
+		{"parameters":"Retriever itemRetriever"},
+		{"parameters":"Item key, UsableItem item"},
+		{"parameters":"UsableItem item"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getKey","parameters":""},
+		{"name":"setItem","parameters":"UsableItem item"},
+		{"name":"setKey","parameters":"Item key"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"LockableItemContainer",
+	"superclass":"ItemContainer",
+	"icon":"item",
+	"description":"This is an item container that can be locked. Set a key item to it to use.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Item key"},
+		{"parameters":"String n, String d, Item key"},
+		{"parameters":"Item key, String n, String d, int cap, boolean canSeeInside"},
+		{"parameters":"Item key, String n, String d, int cap"},
+		{"parameters":"String n, String d, int cap, boolean canSeeInside"}
+	],
+	"methods": [
+		{"name":"lock","parameters":""},
+		{"name":"getKey","parameters":""},
+		{"name":"isLocked","parameters":""},
+		{"name":"unlock","parameters":""},
+		{"name":"setKey","parameters":"Item key"},
+		{"name":"setLocked","parameters":"boolean locked"}
+	]
+	},
+	{
+	"apiid":"AttributeTask",
+	"superclass":"Designation",
+	"icon":"designation",
+	"description":"Just like a normal Task but instead of completing for every player on the tale driver it completes for all players in the tale driver that have a certain attribute key.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String key"}
+	],
+	"methods": [
+		{"name":"fail","parameters":""},
+		{"name":"complete","parameters":""},
+		{"name":"setAttributeKey","parameters":"String attributeKey"},
+		{"name":"getAttributeKey","parameters":""}
+	]
+	},
+	{
+	"apiid":"RemoveActorAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action gets an actor and removes it from a scene. It cannot remove players, to 'remove' players see end history action or remove player action.",
+	"constructors": [
+		{"parameters":"Retriever targetR, Retriever sceneR"},
+		{"parameters":"Actor target, Scene scene"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getTarget","parameters":""},
+		{"name":"setTarget","parameters":"Actor target"},
+		{"name":"setScene","parameters":"Scene scene"},
+		{"name":"getScene","parameters":""}
+	]
+	},
+	{
+	"apiid":"CompleteDesignationAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that completes a target designation.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Designation designation"}
+	],
+	"methods": [
+		{"name":"setDesignation","parameters":"Designation designation"},
+		{"name":"getDesignation","parameters":""}
+	]
+	},
+	{
+	"apiid":"Objective",
+	"superclass":"Object",
+	"icon":"designation",
+	"description":"An objective is not a Designation. This is more like a 'designations manager'. This is a bag of designations that need to be completed toghether. Once they are completed, the objective becomes completed. TL;DR This is a class that keeps track of a list of designations registering if they are completed.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Designation d"}
+	],
+	"methods": [
+		{"name":"getName","parameters":""},
+		{"name":"setName","parameters":"String name"},
+		{"name":"getDescription","parameters":""},
+		{"name":"setDescription","parameters":"String description"},
+		{"name":"isCompleted","parameters":""},
+		{"name":"isFailed","parameters":""},
+		{"name":"addDesignation","parameters":"Designation d"},
+		{"name":"endsHistory","parameters":""},
+		{"name":"setEndsHistory","parameters":"boolean completesHistory"},
+		{"name":"getEndCause","parameters":""},
+		{"name":"setEndCause","parameters":"String endCause"}
+	]
+	},
+	{
+	"apiid":"SetUsableItemUseTextAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the usable item use text to the specified value.",
+	"constructors": [
+		{"parameters":"Retriever useTRetriever"},
+		{"parameters":"Retriever useTRetriever, Retriever usableItemRetriever"},
+		{"parameters":"String use, UsableItem usableItem"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String use"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"UsableItem target"},
+		{"name":"setUseText","parameters":"String text"}
+	]
+	},
+	{
+	"apiid":"HasItemCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"If the param is a container, it must have the stored item. If you don't set an item, this always return true. If any container param doesn't have the item, return false.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Item theItem"}
+	],
+	"methods": [
+		{"name":"setItem","parameters":"Item item"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"MoveActorAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that gets an actor, removes it from a scene and adds it to another.",
+	"constructors": [
+		{"parameters":"Retriever targetR, Retriever sourceSceneR, Retriever tsceneR"},
+		{"parameters":"Actor target, Scene source, Scene scene"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setActor","parameters":"Actor target"},
+		{"name":"setSource","parameters":"Scene source"},
+		{"name":"setDestination","parameters":"Scene scene"},
+		{"name":"getActor","parameters":""},
+		{"name":"getDestination","parameters":""},
+		{"name":"getSource","parameters":""}
+	]
+	},
+	{
+	"apiid":"CreateUsableActionItemAction",
+	"superclass":"CreateItemAction",
+	"icon":"actions",
+	"description":"An action to create usable action items and add them to scenes.",
+	"constructors": [
+		{"parameters":"String name, String description, String useText, int uses, IAction action"},
+		{"parameters":"String name, String description, String useText, int uses, boolean storable, IAction action, Condition cond"},
+		{"parameters":"String name, String description, IAction action"},
+		{"parameters":"String name, String description"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"SayToAllIn",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that narrates to all players in the target scene. You can add more than one text to this action, it will narrate one of the list randomly. If the target scene is not defined, it will say on the 'calling' player scene. If there is no calling player, this will 'skip' and not do nothing.",
+	"constructors": [
+		{"parameters":"String guy, Object[] what"},
+		{"parameters":"String guy, String what, String format"},
+		{"parameters":"Retriever what"},
+		{"parameters":"Retriever what, Retriever where"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"String what, Scene where"},
+		{"parameters":"String what"}
+	],
+	"methods": [
+		{"name":"setText","parameters":"String txt"},
+		{"name":"setTargetScene","parameters":"Scene scene"},
+		{"name":"addText","parameters":"String txt"}
+	]
+	},
+	{
+	"apiid":"IsOnSceneCondition",
+	"superclass":"Condition",
+	"icon":"conditions",
+	"description":"Checks if an actor is on a scene. If the parameter is an actor, it must be on the scene. If one of the actor parameters is not in the scene, then the condition returns false. You must set the scene to this condition. If the condition has no scene, it will return false always.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"Scene s"}
+	],
+	"methods": [
+		{"name":"setScene","parameters":"Scene scene"},
+		{"name":"getScene","parameters":""}
+	]
+	},
+	{
+	"apiid":"KillAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"Sets the LiveActor (player/monster/anything live) health to zero. Kills it. Can be used to kill the player easily, just don't set a target and this  action will kill the context player.",
+	"constructors": [
+		{"parameters":"Retriever targetActor"},
+		{"parameters":"LiveActor actor"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"LiveActor target"}
+	]
+	},
+	{
+	"apiid":"TriggerCommandCountSpecific",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A trigger that counts a specific amount of calls to a specific command. If the calls exceed the trigger limit, then the trigger will execute.",
+	"constructors": [
+		{"parameters":"String name, IAction act, String cAct, int triggerLimit"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setLimit","parameters":"int limit"},
+		{"name":"setCommandActivator","parameters":"String commandActivator"}
+	]
+	},
+	{
+	"apiid":"IntegerFromVariableRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever gets a integer from a tale driver variable.",
+	"constructors": [
+		{"parameters":"String variable"},
+		{"parameters":"String variable, int scale"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"ResetActionGraphAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This resets an ActionGraphStreamReader by using a son ActionNode. This sets the ActionGraphStreamReader current node to the first node and removes the current 'owner' player that is leading the interaction with the AGSR. This allows for new interaction in the graph.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"ActionNode cht"}
+	],
+	"methods": [
+		{"name":"setNode","parameters":"ActionNode anode"},
+		{"name":"getAnode","parameters":""}
+	]
+	},
+	{
+	"apiid":"TimedAction",
+	"superclass":"Action",
+	"icon":"none",
+	"description":"This is an EXPERIMENTAL action. It is an action that when called to act, it schedules an action to run after a delay in milliseconds. This action will hold all actions after it in a queue. To just schedule an action to happen later, use the DelayedAction.",
+	"constructors": [
+		{"parameters":"Action act, int del"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"reset","parameters":""},
+		{"name":"getAction","parameters":""},
+		{"name":"setAction","parameters":"Action action"}
+	]
+	},
+	{
+	"apiid":"UpdateHistoryAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action updates the history. Calls an update making player states update, actions to run, triggers to run. This is the same as the player running a command.",
+	"constructors": [
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"DelayedAction",
+	"superclass":"Action",
+	"icon":"none",
+	"description":"This is an EXPERIMENTAL action. It is an action that when called to act, it schedules an action to run after a delay in milliseconds. This action will schedule an action to run later. Won't stop an action queue because it sets it self to complete just after scheduling the action and not after the action is done.",
+	"constructors": [
+		{"parameters":"Action act, int del, int period"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"reset","parameters":""},
+		{"name":"getAction","parameters":""},
+		{"name":"setAction","parameters":"Action action"}
+	]
+	},
+	{
+	"apiid":"FloatFromAttributeRetriever",
+	"superclass":"Retriever",
+	"icon":"retrievers",
+	"description":"This retriever gets a float from the a player attribute. Uses the current context player.",
+	"constructors": [
+		{"parameters":"String attb"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"AddGlobalActionNodeAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This is an action that installs a non-hungry global stream reader. This stream reader is global and not boundto any player. This means it will activate for any player if a node is activated. The StreamReaderGraph State is global. Players that activate any node n this Graph, will change its state to other players.",
+	"constructors": [
+		{"parameters":"ActionNode node, boolean withMaster"},
+		{"parameters":"ActionNode node"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getNode","parameters":""},
+		{"name":"setNode","parameters":"ActionNode anode"}
+	]
+	},
+	{
+	"apiid":"TriggerItemUsed",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"A Trigger that triggers each time an item is used. You can set a specific item to check, if not any item will trigger this. You can also set a key to check if the item used was used with the specified key.",
+	"constructors": [
+		{"parameters":"String name, IAction act, Item item, Item key"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"getKey","parameters":""},
+		{"name":"setItem","parameters":"Item item"},
+		{"name":"setKey","parameters":"Item key"},
+		{"name":"getItem","parameters":""}
+	]
+	},
+	{
+	"apiid":"ResetActionAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"This action resets any action by setting its completed state to false. Also resets sequence actions.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"SequenceAction action"}
+	],
+	"methods": [
+		{"name":"setAction","parameters":"Action action"},
+		{"name":"getSequenceAction","parameters":""}
+	]
+	},
+	{
+	"apiid":"DoorItem",
+	"superclass":"UsableActionItem",
+	"icon":"item",
+	"description":"This is an usable action item can be used to lock/unlock a path to a scene. When the player opens the door, he unlocks the path to the scene. You can add a lock to this door by setting an attribute key (and an optional value). If the door has a lock, the player will need to use it with an item that has either the attribute name or both name and value set here.",
+	"constructors": [
+		{"parameters":"Default Constructor"},
+		{"parameters":"String n, String d, String attributeName, Scene unlocksScene"},
+		{"parameters":"String n, String d, String attributeName, Object attributeValue, boolean open, Scene unlocksScene"},
+		{"parameters":"boolean open, Scene unlocksScene"},
+		{"parameters":"boolean open"},
+		{"parameters":"String n, String d, boolean open, Scene unlocksScene"}
+	],
+	"methods": [
+		{"name":"toString","parameters":""},
+		{"name":"isOpen","parameters":""},
+		{"name":"setOpen","parameters":"boolean open"},
+		{"name":"getUnlocksScene","parameters":""},
+		{"name":"setUnlocksScene","parameters":"Scene unlocksScene"},
+		{"name":"removeLock","parameters":""},
+		{"name":"setLockAttributeName","parameters":"String attributeName"},
+		{"name":"setLockAttributeValue","parameters":"Object attributeValue"},
+		{"name":"getLockAttributeName","parameters":""},
+		{"name":"getLockAttributeValue","parameters":""}
+	]
+	},
+	{
+	"apiid":"ChangeHealthAction",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action to change a LiveActor (player/monster/living thing) health. Can be used to change. If nothing is set as a target liveactor in the constructor, the context player is set as target.",
+	"constructors": [
+		{"parameters":"Retriever healthValueRetriever"},
+		{"parameters":"Retriever healthValueRetriever, Retriever actorRetriever"},
+		{"parameters":"int healthValue, LiveActor actor"},
+		{"parameters":"Default Constructor"},
+		{"parameters":"int healthValue"}
+	],
+	"methods": [
+		{"name":"setTarget","parameters":"LiveActor target"},
+		{"name":"setHealthChange","parameters":"int healthChange"}
+	]
+	},
+	{
+	"apiid":"TriggerSceneEntry",
+	"superclass":"ActionTrigger",
+	"icon":"triggers",
+	"description":"An action trigger that triggers when a player enters a scene.",
+	"constructors": [
+		{"parameters":"String name, IAction act"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+	]
+	},
+	{
+	"apiid":"Say",
+	"superclass":"Action",
+	"icon":"actions",
+	"description":"An action that narrates text directly to the player narrator.You can add more than one text to this action, it will narrate one of the list randomly.",
+	"constructors": [
+		{"parameters":"String guy, String what, String format"},
+		{"parameters":"Retriever what"},
+		{"parameters":"String guy, Object[] what"},
+		{"parameters":"String what"},
+		{"parameters":"Default Constructor"}
+	],
+	"methods": [
+		{"name":"setText","parameters":"String txt"},
+		{"name":"addText","parameters":"String txt"}
+	]
+	}
+]}
